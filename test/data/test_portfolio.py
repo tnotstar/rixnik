@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright 2012 Antonio Alvarado Hernández
+# Copyright 2012-2013 Antonio Alvarado Hernández
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
@@ -14,36 +14,46 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 #
-"""\
-This script implement a test suite for package `rixnik.portfolio`.
 """
-print 1
-import sys
-print sys.path
-from rixnik.data.portfolio import *
-print 2
+This script implements a test suite for the module `rixnik.data.portfolio`.
+"""
 
-import pandas
+from rixnik.data.portfolio import *
+
 import unittest
 
 
-PORTFOLIO_TITLE = "Testing Portfolio"
-
-
 class TestPortfolio(unittest.TestCase):
-    """ A test case for the `rixnik.data.portfolio` objects."""
+    """Tests for the `Portfolio` class."""
 
-    def setUp(self):
-        pass
+    def test_ctor_argcount(self):
+        """No default constructor."""
+        self.assertRaises(TypeError, Portfolio)
 
-    def test_title_ctor(self):
-        p = Portfolio(PORTFOLIO_TITLE)
-        self.assertEqual(p.title, PORTFOLIO_TITLE)
+    def test_ctor_argtype(self):
+        """Bad assets type."""
+        self.assertRaises(TypeError, Portfolio, None)
 
-    def test_title_rdonly(self):
-        p = Portfolio(PORTFOLIO_TITLE)
-        with self.assertRaises(AttributeError):
-            p.title = "Title SHOULD be read-only"
+    def test_ctor_minassets(self):
+        """Minimal number of assets."""
+        self.assertRaises(ValueError, Portfolio, [])
+
+        Portfolio(['AAPL'])
+        Portfolio(['AAPL GOOG'])
+
+    def test_ctor_assetstr(self):
+        """Assets could come as a string."""
+        self.assertRaises(ValueError, Portfolio, "")
+
+        Portfolio("AAPL")
+        Portfolio("AAPL GOOG")
+        Portfolio("AAPL GOOG IBM MSFT ORCL")
+
+    def test_ctor_weighted(self):
+        """Weights could be passed."""
+        assets = "AAPL GOOG IBM MSFT ORCL".split()
+        weights = [.1, .2, .3, .2, .2]
+        Portfolio(assets, weights)
 
 
 if __name__ == '__main__':
