@@ -39,7 +39,8 @@ class TestPortfolio(unittest.TestCase):
         self.assertRaises(ValueError, Portfolio, [])
 
         Portfolio(['AAPL'])
-        Portfolio(['AAPL GOOG'])
+        Portfolio(['AAPL', 'GOOG'])
+        Portfolio(['AAPL', 'GOOG', 'IBM', 'MSFT', 'ORCL'])
 
     def test_ctor_assetstr(self):
         """Assets could come as a string."""
@@ -49,11 +50,11 @@ class TestPortfolio(unittest.TestCase):
         Portfolio("AAPL GOOG")
         Portfolio("AAPL GOOG IBM MSFT ORCL")
 
-    def test_ctor_weighted(self):
+    def test_ctor_eqweighted(self):
         """Weights could be passed."""
         assets = "AAPL GOOG IBM MSFT ORCL".split()
-        weights = [.1, .2, .3, .2, .2]
-        Portfolio(assets, weights)
+        Portfolio(assets)
+        # TODO: check if each weight is equal to 1/len(assets)
 
 
 if __name__ == '__main__':

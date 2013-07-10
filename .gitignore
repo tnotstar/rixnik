@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright 2012 Antonio Alvarado Hernández
+# Copyright 2012-2013 Antonio Alvarado Hernández
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
@@ -15,12 +15,23 @@
 # under the License.
 #
 
-*.pyc
-*.pyo
+*.py[cod]
+*.egg
+*.egg-info
+*.mo
+*.so
+
+__pycache__
+
+build
+eggs
+dist
+sdist
+
+pip-log.txt
+
 *~
 *swp
-
 .DS_Store
-.spyderproject
 
 # EOF
