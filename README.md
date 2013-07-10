@@ -6,7 +6,7 @@ Welcome to the **Rixnik Project**!
 DISCLAIMER
 ----------
 
-Maybe at the future, some pieces of this code could be useful for a newbie, but meanwhile, please you should be careful about this statement:
+Maybe in the future, some pieces of this code could be useful for a newbie, but meanwhile, please you should be careful about this statement:
 
 > This code is been written by a student, not a professional quant. So, **YOU CAN USE IT BUT AT YOUR OWN RISK**.
 
@@ -33,7 +33,7 @@ So, I feel that I need to take things with a better approach and rewrite this fr
 Current status
 --------------
 
-Right now, I'm trying to define some data structures (based on [pandas]), to represent portfolio data from Zivot's code and [PerformanceAnalytics]. This is stuff will be located in the package `rixnik.data`. You can take a look to the package `test.data` for a basic test suite, or use:
+Right now, I'm trying to define some data structures (using [pandas]), to represent portfolio data from Zivot's code and [PerformanceAnalytics]. This is stuff will be located in the package `rixnik.data`. You can take a look to the package `test.data` for a basic test suite, or use:
 
 ~~~~
 nosetests
