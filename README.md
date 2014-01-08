@@ -58,7 +58,6 @@ git clone https://github.com/tnotstar/rixnik
 License
 -------
 
-Finally, **Rixnik** is a free and open source project, and it is licensed under the [Apache License, Version 2.0][3].
+Finally, **Rixnik** is a free and open source project, and it's made available under the terms of the [GNU Affero General Public License (AGPL)][3].
 
-[3]: http://www.apache.org/licenses/LICENSE-2.0 "Apache License, Version 2.0"
-
+[3]: http://www.gnu.org/licenses/agpl-3.0.html "GNU Affero General Public License (AGPL)"
